@@ -43,9 +43,11 @@
         <h3 th:inline="text">[[${jobs.size()}]] Result(s)</h3>
     </div>
     -->
+    <div th:if="${showResults} == true">
+        <h3 th:inline="text">[[${jobs.size()}]] Result(s)</h3>
+    </div>
 
     <div th:if="${jobs} and ${jobs.size()}">
-        <h3 th:inline="text">[[${jobs.size()}]] Result(s)</h3>
         <div>
             <table th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
                 <tbody>
