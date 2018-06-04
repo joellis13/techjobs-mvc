@@ -38,6 +38,26 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
+    <!--
+    <div th:if="method=post">
+        <h3 th:inline="text">[[${jobs.size()}]] Result(s)</h3>
+    </div>
+    -->
+
+    <div th:if="${jobs} and ${jobs.size()}">
+        <h3 th:inline="text">[[${jobs.size()}]] Result(s)</h3>
+        <div>
+            <table th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
+                <tbody>
+                <tr th:each="key : ${job.keySet()}">
+                    <td th:text="${#strings.capitalizeWords(key)}"></td>
+                    <td th:text="${job.get(key)}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 </body>
